@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { CheckCircle2, Search, ShieldCheck, ShieldX, Suspension, XCircle } from 'lucide-react';
+import { Ban as Suspension, CheckCircle2, Search, ShieldCheck, ShieldX, XCircle } from 'lucide-react';
 import { useAuth } from '../../lib/auth';
 import { useI18n } from '../../lib/i18n';
 import { usePrefs } from '../../lib/prefs';
