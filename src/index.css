@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-gold-200 text-forest-900;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-forest-900;
+  }
+  :focus-visible {
+    outline: 2px solid #c09a22;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-55;
+  }
+  .btn-primary {
+    @apply btn bg-forest-700 text-white shadow-soft hover:bg-forest-800 hover:shadow-lift active:scale-[0.99];
+  }
+  .btn-gold {
+    @apply btn bg-gold-400 text-forest-900 shadow-soft hover:bg-gold-300 hover:shadow-lift active:scale-[0.99];
+  }
+  .btn-outline {
+    @apply btn border border-forest-200 bg-white text-forest-800 hover:border-forest-400 hover:bg-forest-50;
+  }
+  .btn-ghost {
+    @apply btn text-forest-700 hover:bg-forest-50;
+  }
+  .btn-danger {
+    @apply btn border border-red-200 bg-red-50 text-red-700 hover:bg-red-100;
+  }
+  .btn-sm {
+    @apply px-3.5 py-1.5 text-[13px];
+  }
+  .btn-lg {
+    @apply px-7 py-3.5 text-base;
+  }
+
+  .card {
+    @apply rounded-2xl border border-forest-100/80 bg-white shadow-soft;
+  }
+  .card-pad {
+    @apply card p-5 sm:p-6;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:border-forest-200 hover:shadow-lift;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold text-forest-800;
+  }
+  .input {
+    @apply w-full rounded-xl border border-forest-200/90 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-forest-400/70 transition focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-500/15;
+  }
+  .input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500/15;
+  }
+  .hint {
+    @apply mt-1 text-xs text-forest-600/80;
+  }
+  .err {
+    @apply mt-1 text-xs font-medium text-red-600;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold;
+  }
+  .kicker {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-gold-600;
+  }
+  .section-title {
+    @apply font-display text-3xl leading-tight text-forest-900 sm:text-4xl;
+  }
+
+  .table-wrap {
+    @apply w-full overflow-x-auto;
+  }
+  .data-table {
+    @apply w-full min-w-[640px] border-collapse text-left text-sm;
+  }
+  .data-table thead th {
+    @apply whitespace-nowrap border-b border-forest-100 bg-forest-50/60 px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-forest-700;
+  }
+  .data-table tbody td {
+    @apply border-b border-forest-100/70 px-4 py-3.5 align-middle text-forest-900/90;
+  }
+  .data-table tbody tr:hover {
+    @apply bg-forest-50/40;
+  }
+
+  .field-row {
+    @apply grid gap-4 sm:grid-cols-2;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-forest-800 transition hover:bg-forest-50;
+  }
+  .nav-link-active {
+    @apply bg-forest-700 text-white shadow-soft hover:bg-forest-700 hover:text-white;
+  }
+
+  .hero-grain {
+    background-image: radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.18), transparent 45%),
+      radial-gradient(circle at 80% 0%, rgba(46, 122, 90, 0.4), transparent 50%);
+  }
+
+  .divider-gold {
+    @apply h-px w-14 bg-gradient-to-r from-gold-400 to-transparent;
+  }
+
+  .stat-value {
+    @apply font-display text-2xl leading-none text-forest-900 sm:text-3xl;
+  }
+
+  .pill-tabs {
+    @apply flex flex-wrap gap-1 rounded-full bg-forest-50 p-1;
+  }
+  .pill-tab {
+    @apply rounded-full px-3.5 py-1.5 text-[13px] font-semibold text-forest-700 transition hover:bg-white/70;
+  }
+  .pill-tab-active {
+    @apply bg-white text-forest-900 shadow-soft;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-forest-100/70;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
