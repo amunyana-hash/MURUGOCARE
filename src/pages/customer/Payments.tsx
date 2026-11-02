@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Download, Loader2, Receipt, Search } from 'lucide-react';
+import { Download, Receipt, Search } from 'lucide-react';
 import { useAuth } from '../../lib/auth';
 import { useI18n } from '../../lib/i18n';
 import { usePrefs } from '../../lib/prefs';
@@ -295,13 +295,5 @@ export default function CustomerPayments() {
         )}
       </Modal>
     </DashboardShell>
-  );
-}
-
-export function PaymentsSpinner() {
-  return (
-    <span className="inline-flex items-center gap-2 text-[12px] text-forest-600">
-      <Loader2 className="h-4 w-4 animate-spin" /> {useI18n().t('common.loading', 'Loading')}
-    </span>
   );
 }
