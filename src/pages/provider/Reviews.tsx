@@ -9,7 +9,7 @@ import { DashboardShell } from '../../components/layout';
 import { Avatar, Badge, EmptyState, PillTabs, ProgressBar, SectionHeader, StarPicker, Stars, TextArea, TextInput } from '../../components/ui';
 import type { Booking, Provider, Review } from '../../lib/types';
 import { insertRow, publishNotification } from '../../lib/db';
-import { relativeTime } from '../../lib/format';
+import { relativeTime, uid } from '../../lib/format';
 import { usePrefs } from '../../lib/prefs';
 
 type Tab = 'all' | '5' | '4' | 'low';
@@ -84,6 +84,7 @@ export default function ProviderReviews() {
     setBusy(true);
     try {
       await insertRow<Review>('reviews', {
+        id: uid(),
         booking_id: booking.id,
         provider_id: provider.id,
         provider_name: provider.full_name,

@@ -292,7 +292,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           created_at: new Date().toISOString(),
         });
       }
-      await insertRow('notifications', {
+      await insertRow<{ id: string } & Record<string, unknown>>('notifications', {
+        id: uid(),
         user_id: newProfile.id,
         audience: newProfile.role,
         title: 'Welcome to URUGOCARE',

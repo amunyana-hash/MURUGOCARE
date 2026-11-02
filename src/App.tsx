@@ -6,7 +6,7 @@ import { ToastStack } from './components/ui';
 import { usePrefs } from './lib/prefs';
 
 import Home from './pages/Home';
-import Services from './pages/Services';
+import { Services } from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Providers from './pages/Providers';
 import Pricing from './pages/Pricing';

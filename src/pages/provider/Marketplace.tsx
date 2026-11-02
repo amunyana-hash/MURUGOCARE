@@ -187,7 +187,7 @@ export default function ProviderMarketplace() {
             <option value="">All categories</option>
             {categories.map((c) => (
               <option key={c.slug} value={c.slug}>
-                {c.name}
+                {c.name_en}
               </option>
             ))}
           </SelectField>

@@ -50,7 +50,7 @@ export default function SubscriptionPage() {
         status: 'active',
         price: plan.price_rwf,
         started_at: today,
-        renews_at: addDaysISO(today, plan.interval === 'year' ? 365 : 30),
+        renews_at: addDaysISO(plan.interval === 'year' ? 365 : 30).slice(0, 10),
         payment_method: method,
         auto_renew: autoRenew,
       });
