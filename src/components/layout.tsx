@@ -16,7 +16,7 @@ import { useAuth } from '../lib/auth';
 import { usePrefs } from '../lib/prefs';
 import { useNotifications } from '../lib/hooks';
 import { relativeTime } from '../lib/format';
-import { Avatar, Badge } from './ui';
+import { Avatar, Badge, Icon } from './ui';
 
 /* --------------------------------------------------------------- language */
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
@@ -617,11 +617,10 @@ export function DashboardShell({
 }
 
 function NavItemLabel({ item, unread }: { item: SidebarItem; unread: number }) {
-  const IconCmp = requireIcon(item.icon);
   const count = item.to === '/notifications' ? unread : item.count;
   return (
     <>
-      <IconCmp className="h-4 w-4 shrink-0" />
+      <Icon name={item.icon} className="h-4 w-4 shrink-0" />
       <span className="flex-1 truncate">{item.label}</span>
       {typeof count === 'number' && count > 0 && (
         <span className="rounded-full bg-gold-400 px-1.5 py-0.5 text-[10px] font-bold text-forest-900">{count}</span>
@@ -629,16 +628,3 @@ function NavItemLabel({ item, unread }: { item: SidebarItem; unread: number }) {
     </>
   );
 }
-
-function requireIcon(name: string) {
-  // Lazy-free icon lookup shared with the UI kit's mapping.
-  const icons = require_icons();
-  return icons[name] ?? icons.Circle;
-}
-
-function require_icons(): Record<string, React.ComponentType<{ className?: string }>> {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  return iconsModule;
-}
-
-import * as iconsModule from 'lucide-react';
