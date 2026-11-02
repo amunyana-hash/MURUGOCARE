@@ -108,7 +108,7 @@ export default function AdminMessages() {
       <div className="grid gap-4 sm:grid-cols-3">
         <StatCard label="New enquiries" value={counts.new} hint="Awaiting a reply" icon="Mail" tone="gold" />
         <StatCard label="Replied" value={counts.replied} hint="Closed by the desk" icon="CheckCheck" tone="green" />
-        <StatCard label="Total received" value={counts.all} hint="All-time contact form" icon="Inbox" tone="neutral" />
+        <StatCard label="Total received" value={counts.all} hint="All-time contact form" icon="Inbox" tone="blue" />
       </div>
 
       <div className="card card-pad mt-6">

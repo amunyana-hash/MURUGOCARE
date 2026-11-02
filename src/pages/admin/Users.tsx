@@ -107,7 +107,7 @@ export default function AdminUsers() {
         <StatCard label="Customers" value={counts.customer ?? 0} hint="Book services in Rwanda" icon="Users" tone="green" />
         <StatCard label="Providers" value={counts.provider ?? 0} hint="Supply verified services" icon="Briefcase" tone="gold" />
         <StatCard label="Diaspora accounts" value={diaspora} hint="Managing family remotely" icon="Globe2" tone="blue" />
-        <StatCard label="Administrators" value={counts.admin ?? 0} hint="Operations desk" icon="ShieldCheck" tone="neutral" />
+        <StatCard label="Administrators" value={counts.admin ?? 0} hint="Operations desk" icon="ShieldCheck" tone="blue" />
       </div>
 
       <div className="card card-pad mt-6">

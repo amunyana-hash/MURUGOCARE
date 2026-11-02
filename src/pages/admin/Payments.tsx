@@ -53,14 +53,19 @@ export default function AdminPayments() {
 
   const byMethod = useMemo(() => {
     const palette: Record<string, string> = {
-      momo: '#C9A227',
-      airtel: '#C05C5C',
+      mtn_momo: '#C9A227',
+      airtel_money: '#C05C5C',
+      bank_transfer: '#8B7BD8',
       card: '#5B93C7',
       cash: '#2F7A5B',
     };
     const counts = new Map<string, number>();
     totals.succeeded.forEach((p) => counts.set(p.method, (counts.get(p.method) ?? 0) + p.amount));
-    return Array.from(counts, ([label, value]) => ({ label: label.toUpperCase(), value, color: palette[label] ?? '#94A3B8' }));
+    return Array.from(counts, ([label, value]) => ({
+      label: label.replace(/_/g, ' ').toUpperCase(),
+      value,
+      color: palette[label] ?? '#94A3B8',
+    }));
   }, [totals.succeeded]);
 
   const filtered = useMemo(() => {
@@ -206,8 +211,18 @@ export default function AdminPayments() {
                     <td className="px-4 py-2.5 text-forest-700">{p.customer_name}</td>
                     <td className="max-w-[220px] truncate px-4 py-2.5 text-forest-600">{p.description}</td>
                     <td className="px-4 py-2.5">
-                      <Badge tone={p.method === 'momo' ? 'gold' : p.method === 'airtel' ? 'red' : p.method === 'card' ? 'blue' : 'neutral'}>
-                        {p.method.toUpperCase()}
+                      <Badge
+                        tone={
+                          p.method === 'mtn_momo'
+                            ? 'gold'
+                            : p.method === 'airtel_money'
+                              ? 'red'
+                              : p.method === 'card'
+                                ? 'blue'
+                                : 'neutral'
+                        }
+                      >
+                        {p.method.replace(/_/g, ' ').toUpperCase()}
                       </Badge>
                     </td>
                     <td className="px-4 py-2.5 text-forest-500">{p.provider_ref}</td>
